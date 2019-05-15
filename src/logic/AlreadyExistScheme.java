@@ -13,7 +13,7 @@ public class AlreadyExistScheme extends DBEngine{
      * @param pName Nombre del esquema
      * @return boolean (si existe o no)
      */
-    public boolean exists_scheme(String pName, String pLocation){
+    public static boolean exists_scheme(String pName, String pLocation){
         boolean retorno = false;
         for(int i = 0;i<get_schemes().get_size();i++){
             ListaSimple scheme = (ListaSimple) get_schemes().get(i);

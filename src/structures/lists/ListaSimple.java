@@ -1,9 +1,10 @@
 package structures.lists;
 
 import structures.nodes.ListaSimpleNode;
+import structures.nodes.Node;
 
 public class ListaSimple {
-    private ListaSimpleNode _head = null;
+    private Node _head = null;
     private int _largo = 0;
 
     public ListaSimple() {
@@ -18,15 +19,15 @@ public class ListaSimple {
     }
 
     public ListaSimpleNode insertar(Object pObject) {
-        ListaSimpleNode retorno = null;
+        Node retorno = null;
         if (this._head == null) {
-            this._head = retorno = new ListaSimpleNode(pObject, this.get_size());
+            this._head = retorno = new Node(pObject, this.get_size());
         } else {
-            ListaSimpleNode tmp;
+            Node tmp;
             for(tmp = this._head; tmp.get_Next() != null; tmp = tmp.get_Next()) {
             }
 
-            retorno = new ListaSimpleNode(pObject, this.get_size());
+            retorno = new Node(pObject, this.get_size());
             tmp.set_Next(retorno);
         }
 
@@ -35,8 +36,8 @@ public class ListaSimple {
     }
 
     public ListaSimpleNode get_Node(int pIndex) {
-        ListaSimpleNode returned = null;
-        ListaSimpleNode tmp = this._head;
+        Node returned = null;
+        Node tmp = this._head;
         int contador = 0;
         if (pIndex > this.get_size() - 1) {
             returned = null;
@@ -56,7 +57,7 @@ public class ListaSimple {
 
     public Object get(int pIndex) {
         Object returned = null;
-        ListaSimpleNode tmp = this._head;
+        Node tmp = this._head;
         int contador = 0;
         if (pIndex > this.get_size() - 1) {
             returned = -1;
@@ -75,7 +76,7 @@ public class ListaSimple {
     }
 
     public void set(int pIndex, Object pObject) {
-        ListaSimpleNode tmp = this._head;
+        Node tmp = this._head;
 
         for(int contador = 0; contador <= pIndex; tmp = tmp.get_Next()) {
             if (contador == pIndex) {
@@ -89,7 +90,7 @@ public class ListaSimple {
     }
 
     public void delete(int pIndex) {
-        ListaSimpleNode tmp = this._head;
+        Node tmp = this._head;
         int contador = 0;
         if (pIndex <= this.get_size() - 1) {
             for(; contador <= pIndex && tmp != null; tmp = tmp.get_Next()) {

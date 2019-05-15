@@ -4,6 +4,8 @@ package logic;
 import org.json.JSONArray;
 import org.json.JSONObject;
 import structures.lists.ListaSimple;
+import logic.Tools;
+import logic.Join;
 
 public class CreateScheme {
 
@@ -19,6 +21,8 @@ public class CreateScheme {
         JSONArray columns = new JSONArray(pJSON.get("columns").toString());
         AlreadyExistScheme existScheme = new AlreadyExistScheme();
         ExistInScheme existInScheme = new ExistInScheme();
+        DBEngine dbEngine = new DBEngine();
+        //Join correctJoin = new Join();
 
         if(name.replace(" ", "").equals("")){
             retorno.put("status", "error");
@@ -58,11 +62,11 @@ public class CreateScheme {
                     state=false;
                     retorno.put("status", "error");
                     retorno.put("code", "The type's name of any column can not be empty");
-                }else if(!existInScheme.exists_in_list(column_type.toLowerCase(),_tipos_de_datos)){
+                }else if(!existInScheme.exists_in_list(column_type.toLowerCase(), dbEngine.get_tipos_de_datos())){
                     state=false;
                     retorno.put("status", "error");
                     retorno.put("code", "The type of any column can not be "+column_type);
-                }else if(column_type.equals("join") && _schemes.get_size()==0){
+                }else if(column_type.equals("join") && dbEngine.get_schemes().get_size()==0){
                     state=false;
                     retorno.put("status", "error");//OK
                     retorno.put("code", "There is not another schemes to join");
@@ -70,7 +74,7 @@ public class CreateScheme {
                     state=false;
                     retorno.put("status", "error");//OK
                     retorno.put("code", "No exists information for make a join");
-                }else if(tmp3.has("join") && !is_correct_join(tmp3.get("join").toString())){
+                }else if(tmp3.has("join") && !Join.is_correct_join(tmp3.get("join").toString())){
                     state=false;
                     retorno.put("status", "error");
                     retorno.put("code", "The join information given is not correct");
@@ -104,11 +108,11 @@ public class CreateScheme {
             if(state){
                 tmp.insertar(name);//[0]
                 tmp.insertar(location);//[1]
-                tmp.insertar(shared_secret);//[2]
+                //tmp.insertar(shared_secret);//[2]
                 tmp.insertar(tmp2);//Columnas[3]
                 tmp.insertar(new ListaSimple());//Índices[4]
                 tmp.insertar(new ListaSimple());//Datos[5]
-                _schemes.insertar(tmp);
+                dbEngine.get_schemes().insertar(tmp);
                 retorno.put("status", "done");
                 Tools.beep();
             }

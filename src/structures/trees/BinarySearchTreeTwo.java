@@ -2,7 +2,7 @@ package structures.trees;
 
 import structures.nodes.BSTNode;
 
-public class BinarySearchTree<T extends Comparable<T>>{
+public class BinarySearchTreeTwo<T extends Comparable<T>>{
     public BSTNode<T> root;
 
     /**

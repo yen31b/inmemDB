@@ -4,7 +4,7 @@ import structures.lists.ListaSimple;
 
 public class DBEngine {
 
-    private ListaSimple _schemes = new ListaSimple();
+    private static ListaSimple _schemes = new ListaSimple();
     private ListaSimple _tipos_de_datos = new ListaSimple();
 
     public DBEngine(){
@@ -19,7 +19,7 @@ public class DBEngine {
         _tipos_de_datos.insertar("join");
     }
 
-    public ListaSimple get_schemes() {
+    public static ListaSimple get_schemes() {
         return _schemes;
     }
 
