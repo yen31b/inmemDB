@@ -7,14 +7,17 @@ import structures.lists.ListaSimple;
 import logic.Tools;
 import logic.Join;
 
-public class CreateScheme {
+/**
+ *
+ */
+public class crearEsquema {
     private String Error = "error";
     /**
      * Crear un nuevo esquema
      * @param pJSON informacion recibida del usuario en formato JSON
      * @return Estado despues de crear (creado o los errores posibles)
      */
-    public JSONObject CreateScheme(JSONObject pJSON){
+    /**public JSONObject crear(JSONObject pJSON){
         JSONObject retorno = new JSONObject();
         String name = pJSON.get("name").toString();
         String location = pJSON.get("location").toString();
@@ -118,5 +121,5 @@ public class CreateScheme {
             }
         }
         return retorno;
-    }
+    }*/
 }

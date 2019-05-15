@@ -1,13 +1,13 @@
 package structures.nodes;
 
-public class Node {
+public class ListaSimpleNode {
     private int _ID = -1;
-    private Node _Next = null;
+    private ListaSimpleNode _Next = null;
     private Object _Data = null;
     private boolean _State = false;
     private String Error = "error";
 
-    public Node(Object pData, int pID) {
+    public ListaSimpleNode(Object pData, int pID) {
         this._Data = pData;
         this._ID = pID;
         this._State = true;
@@ -21,11 +21,11 @@ public class Node {
         this._Data = pObject;
     }
 
-    public Node get_Next() {
+    public ListaSimpleNode get_Next() {
         return this._Next;
     }
 
-    public void set_Next(Node pNode) {
+    public void set_Next(ListaSimpleNode pNode) {
         this._Next = pNode;
     }
 
