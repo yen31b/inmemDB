@@ -8,6 +8,7 @@ import java.util.Stack;
 public class BinarySearchTree<T extends Comparable<T>> extends Arbol<T> {
     private BinarySearchTree<T>.Node<T> root = null;
     private Comparator<T> comparator;
+    private String Error = "error";
 
     public BinarySearchTree() {
         this.comparator = null;

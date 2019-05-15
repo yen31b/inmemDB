@@ -17,9 +17,10 @@ public class Main {
     public static boolean _reading = true;
     public static int _port = 8080;
     public static boolean _flag = false;
+    private String Error = "error";
 
     /**
-     * Metodo para lesctura de lineas
+     * Metodo para lectura de lineas
      * @return txt
      */
     private static String read(){
@@ -35,7 +36,7 @@ public class Main {
 
     /**
      * Metodo de envio de datos al servidor
-     * @param String txt
+     * @param txt
      */
 
     @SuppressWarnings("unused")
@@ -61,7 +62,7 @@ public class Main {
 
     /**
      * Alalizador de comandos provenientes de la consola
-     * @param String pCommand
+     * @param pCommand
      */
 
     private static void analyzer(String pCommand){
@@ -147,7 +148,7 @@ public class Main {
 
     /**
      * Metodo main
-     * @param String[] args
+     * @param args
      */
 
     public static void main(String[] args){

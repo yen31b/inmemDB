@@ -10,6 +10,7 @@ public class SchemeColumn {
      * @param pColumn Columna que se desea buscar
      * @return Si se encontró la columna ó no
      */
+    private String Error = "error";
     public boolean scheme_has_column(String pScheme,String pLocation,String pShared_secret,String pColumn){
         boolean retorno =false;
         DBEngine dbEngine = new DBEngine();

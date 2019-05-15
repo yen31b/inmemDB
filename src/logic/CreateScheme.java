@@ -8,7 +8,7 @@ import logic.Tools;
 import logic.Join;
 
 public class CreateScheme {
-
+    private String Error = "error";
     /**
      * Crear un nuevo esquema
      * @param pJSON informacion recibida del usuario en formato JSON

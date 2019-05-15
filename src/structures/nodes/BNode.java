@@ -9,6 +9,7 @@ public class BNode<T> {
     public BNode<T> right = null;
     public ListaSimpleNode U = null;
     public char balance;
+    private String Error = "error";
 
     public BNode(T information, BNode parent, ListaSimpleNode node) {
         this.information = information;

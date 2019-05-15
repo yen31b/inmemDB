@@ -4,6 +4,7 @@ import structures.nodes.BSTNode;
 
 public class BinarySearchTreeTwo<T extends Comparable<T>>{
     public BSTNode<T> root;
+    private String Error = "error";
 
     /**
      * Adds a node to the binary search tree

@@ -13,6 +13,7 @@ public class Main {
     public static DefaultInfo _defaultinfo = new DefaultInfo();
     private static Server _server = null;
     private static Array<String[]> _log = new Array<String[]>();
+    private String Error = "error";
 
     /**
      * Main Method
@@ -25,7 +26,7 @@ public class Main {
         Tools.write_("Ingeniería en Computadores");
         Tools.write_("Algoritmos y Estructuras de Datos I");
         Tools.write_("Consola de Administración del Servidor");
-        Tools.write_(_defaultinfo.get_NOMBRE_PROYECTO()+" "+_defaultinfo.get_VERSION_DEL_PROYECTO());
+
         for(int i=0;i<=70;i++){Tools.write("-");}
         Tools.space();
         if(_defaultinfo.get_LOGIN()){

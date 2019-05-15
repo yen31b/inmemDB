@@ -12,6 +12,7 @@ public class RBNode<T extends Comparable<T>> {
     private RBNode<T> leftChild;
     private boolean deleted;
     private ListaSimpleNode U;
+    private String Error = "error";
 
     public RBNode(T data, ListaSimpleNode node) {
         this.data = data;

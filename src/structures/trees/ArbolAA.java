@@ -3,6 +3,7 @@ package structures.trees;
 import structures.nodes.ListaSimpleNode;
 
 public class ArbolAA<AnyType extends Comparable<AnyType>> extends Arbol<AnyType> {
+    private String Error = "error";
     private ArbolAA.AANode<AnyType> root;
     private ArbolAA.AANode<AnyType> nullNode = new ArbolAA.AANode((Object)null, (ArbolAA.AANode)null, (ArbolAA.AANode)null, (ListaSimpleNode)null);
     private ArbolAA.AANode<AnyType> deletedNode;

@@ -8,6 +8,7 @@ public class AVLNode<E extends Comparable<? super E>> {
     private E element;
     private Node<?> auxiliar;
     private ListaSimpleNode U;
+    private String Error = "error";
 
     public AVLNode() {
         this((Comparable)null, (ListaSimpleNode)null);

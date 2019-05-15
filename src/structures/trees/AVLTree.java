@@ -5,6 +5,7 @@ import structures.nodes.ListaSimpleNode;
 
 public class AVLTree<E extends Comparable<E>> extends Arbol<E> {
     private AVLNode<E> rootAbove = new AVLNode();
+    private String Error = "error";
 
     public AVLTree() {
     }

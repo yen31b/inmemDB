@@ -5,6 +5,7 @@ import structures.nodes.ListaSimpleNode;
 import java.io.PrintWriter;
 
 public class ArbolRN<T extends Comparable<T>> extends Arbol<T> {
+    private String Error = "error";
     private static final char BLACK = 'B';
     private static final char RED = 'R';
     private RBNode<T> root = null;

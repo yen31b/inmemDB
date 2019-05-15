@@ -9,6 +9,7 @@ public class Join {
      * @param pJSON Informacion del Join a validar
      * @return true or false
      */
+    private String Error = "error";
     public static boolean is_correct_join(String pJSON){
         boolean retorno = false;
         AlreadyExistScheme existScheme = new AlreadyExistScheme();

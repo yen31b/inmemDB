@@ -5,6 +5,7 @@ import gui.cliente.Main;;
 
 public class Listening extends Thread{
     private boolean listening = false;
+    private String Error = "error";
     public Listening(){
         listening = true;
     }

@@ -2,6 +2,7 @@ package data;
 
 import org.json.JSONException;
 import org.json.JSONObject;
+import org.json.XML;
 
 import java.io.FileInputStream;
 import java.io.IOException;
@@ -117,8 +118,15 @@ public class DefaultInfo {
         return this.PIN;
     }
     /**
-     * Se obtiene el puerto web
-     * @return pin
+     * Este método se llama desde la clase Main para mostrar en consola las configuraciones actuales del sistema
+     * @return Las configuraciones
      */
+    public String get_properties(String pFormato){
+        if(pFormato=="JSON"){
+            return PROPERTIES.toString();
+        }else{
+            return XML.toString(PROPERTIES);
+        }
+    }
 
 }

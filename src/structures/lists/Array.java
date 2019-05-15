@@ -6,7 +6,7 @@ import structures.nodes.Node;
 public class Array<T> {
     private Node _head = null;
     private int _largo = 0;
-
+    private String Error = "error";
     public Array() {
     }
 

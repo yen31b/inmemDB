@@ -17,6 +17,7 @@ import org.json.XML;
  *
  */
 public class ClientWorker extends Thread{
+    private String Error = "error";
     private Socket _cliente = null;
     private BufferedReader _reader = null;
     private PrintWriter _writer = null;

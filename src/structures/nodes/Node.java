@@ -5,6 +5,7 @@ public class Node {
     private Node _Next = null;
     private Object _Data = null;
     private boolean _State = false;
+    private String Error = "error";
 
     public Node(Object pData, int pID) {
         this._Data = pData;

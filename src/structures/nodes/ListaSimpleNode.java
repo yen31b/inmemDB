@@ -5,6 +5,7 @@ public class ListaSimpleNode {
     private ListaSimpleNode _Next = null;
     private Object _Data = null;
     private boolean _State = false;
+    private String Error = "error";
 
     public ListaSimpleNode(Object pData, int pID) {
         this._Data = pData;

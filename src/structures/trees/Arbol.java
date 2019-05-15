@@ -3,6 +3,7 @@ package structures.trees;
 import structures.nodes.ListaSimpleNode;
 
 public class Arbol<T extends Comparable<T>> {
+    private String Error = "error";
     public Arbol() {
     }
 

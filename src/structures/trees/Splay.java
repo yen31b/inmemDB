@@ -7,6 +7,7 @@ public class Splay<AnyType extends Comparable<AnyType>> extends Arbol<AnyType> {
     private Splay.BinaryNode<AnyType> header = new Splay.BinaryNode((Object)null, (ListaSimpleNode)null);
     private Splay.BinaryNode<AnyType> root;
     private Splay.BinaryNode<AnyType> nullNode = new Splay.BinaryNode((Object)null, (ListaSimpleNode)null);
+    private String Error = "error";
 
     public Splay() {
         this.nullNode.left = this.nullNode.right = this.nullNode;

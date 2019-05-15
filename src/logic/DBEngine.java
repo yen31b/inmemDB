@@ -6,7 +6,7 @@ public class DBEngine {
 
     private static ListaSimple _schemes = new ListaSimple();
     private ListaSimple _tipos_de_datos = new ListaSimple();
-
+    private String Error = "error";
     public DBEngine(){
         _tipos_de_datos.insertar("int");
         _tipos_de_datos.insertar("string");

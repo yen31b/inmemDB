@@ -6,6 +6,7 @@ import java.util.NoSuchElementException;
 
 public class ArbolB<T extends Comparable<T>> extends Arbol<T> {
     private BNode<T> root;
+    private String Error = "error";
 
     public ArbolB() {
         this.root = null;

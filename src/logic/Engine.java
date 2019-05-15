@@ -24,7 +24,7 @@ import gui.server.Main;
 
 @SuppressWarnings("unchecked")
 public class Engine {
-
+    private String Error = "error";
     private ListaSimple _schemes = new ListaSimple();
     private ListaSimple _tipos_de_datos = new ListaSimple();
 
@@ -673,10 +673,6 @@ public class Engine {
         }else if(shared_secret.replace(" ","").equals("")){
             retorno.put("status", "error");
             retorno.put("code", "The shared_secret can not be empty");
-        }else if(shared_secret.length()<Main._defaultinfo.get_SHARED_SECRET()){
-            retorno.put("status", "error");
-            retorno.put("code", "The shared secret can not be less than "+
-                    Main._defaultinfo.get_SHARED_SECRET() +" characters");
         }else if(columns.length()==0){
             retorno.put("status", "error");
             retorno.put("code", "The scheme should have at least one column");
