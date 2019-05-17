@@ -1,0 +1,43 @@
+{"command":"create_scheme","name":"My Files","location":"cr.ac.tec.ce1103.databases","shared_secret":"12345","columns":[{"name":"id","type":"int","length":100},{"name":"file","type":"binary","length":50000}]}
+
+{"command":"create_scheme","name":"My Videos","location":"cr.ac.tec.ce1103.databases","shared_secret":"12345","columns":[{"name":"id","type":"int","length":100},{"name":"video","type":"video","length":5000000}]}
+
+{"command":"create_scheme","name":"USERS","location":"cr.ac.tec.ce1103.databases","shared_secret":"12345","columns":[{"name":"id","type":"int","length":3},{"name":"nombre","type":"string","length":10},{"name":"apellido","type":"string","length":10}]}
+
+{"command":"create_scheme","name":"PDF","location":"cr.ac.tec.ce1103.databases","shared_secret":"12345","columns":[{"name":"id","type":"int","length":100},{"name":"path","type":"string","length":100},{"name":"file","type":"binary","length":1000000},{"name":"usuario","type":"join","length":1,"join":{"scheme":"USERS","location":"cr.ac.tec.ce1103.databases","shared_secret":"12345","busqueda":"id","dato":"nombre"}}]}
+
+{"command":"delete_scheme","name":"USERS","location":"cr.ac.tec.ce1103.databases","shared_secret":"12345"}
+{"command":"delete_scheme","name":"PDF","location":"cr.ac.tec.ce1103.databases","shared_secret":"12345"}
+{"command":"delete_scheme","name":"My Videos","location":"cr.ac.tec.ce1103.databases","shared_secret":"12345"}
+
+
+{"command":"insert","scheme":"USERS","location":"cr.ac.tec.ce1103.databases","shared_secret":"12345","values":{"id":"0","nombre":"root"}}
+{"command":"insert","scheme":"USERS","location":"cr.ac.tec.ce1103.databases","shared_secret":"12345","values":{"id":"1","nombre":"Kendall","apellido":"González"}}
+{"command":"insert","scheme":"USERS","location":"cr.ac.tec.ce1103.databases","shared_secret":"12345","values":{"id":"2","nombre":"Victor","apellido":"Chavarría"}}
+{"command":"insert","scheme":"USERS","location":"cr.ac.tec.ce1103.databases","shared_secret":"12345","values":{"id":"3","nombre":"Esteban","apellido":"Sanabria"}}
+{"command":"insert","scheme":"USERS","location":"cr.ac.tec.ce1103.databases","shared_secret":"12345","values":{"id":"4","nombre":"Jeison","apellido":"Meléndez"}}
+
+{"command":"insert","scheme":"PDF","location":"cr.ac.tec.ce1103.databases","shared_secret":"12345","values":{"id":"1","path":"C:/P.pdf","file":"ABC==","usuario":"0"}}
+{"command":"insert","scheme":"PDF","location":"cr.ac.tec.ce1103.databases","shared_secret":"12345","values":{"id":"2","path":"C:/P2.pdf","file":"ABQ==","usuario":"1"}}
+
+{"command":"make_index","scheme":"USERS","location":"cr.ac.tec.ce1103.databases","shared_secret":"12345","arguments":{"column":"nombre","tree":"ABB"}}
+{"command":"make_index","scheme":"USERS","location":"cr.ac.tec.ce1103.databases","shared_secret":"12345","arguments":{"column":"nombre","tree":"B"}}
+{"command":"make_index","scheme":"USERS","location":"cr.ac.tec.ce1103.databases","shared_secret":"12345","arguments":{"column":"id","tree":"ABB"}}
+{"command":"make_index","scheme":"USERS","location":"cr.ac.tec.ce1103.databases","shared_secret":"12345","arguments":{"column":"id","tree":"B"}}
+
+{"command":"make_index","scheme":"PDF","location":"cr.ac.tec.ce1103.databases","shared_secret":"12345","arguments":{"column":"path","tree":"ABB"}}
+{"command":"make_index","scheme":"PDF","location":"cr.ac.tec.ce1103.databases","shared_secret":"12345","arguments":{"column":"path","tree":"B"}}
+
+{"command":"make_index","scheme":"My Videos","location":"cr.ac.tec.ce1103.databases","shared_secret":"12345","arguments":{"column":"id","tree":"B"}}
+
+{"command":"delete_index","scheme":"USERS","location":"cr.ac.tec.ce1103.databases","shared_secret":"12345","arguments":{"column":"id","tree":"ABB"}}
+{"command":"delete_index","scheme":"USERS","location":"cr.ac.tec.ce1103.databases","shared_secret":"12345","arguments":{"column":"nombre","tree":"ABB"}}
+{"command":"delete_index","scheme":"My Videos","location":"cr.ac.tec.ce1103.databases","shared_secret":"12345","arguments":{"column":"id","tree":"B"}}
+
+{"command":"search","scheme":"USERS","location":"cr.ac.tec.ce1103.databases","shared_secret":"12345","arguments":{"column":"id","pattern":"3",index:{"tree":"null"}}}
+{"command":"search","scheme":"USERS","location":"cr.ac.tec.ce1103.databases","shared_secret":"12345","arguments":{"column":"nombre","pattern":"Usuario #1",index:{"tree":"ABB"}}}
+
+{"command":"search","scheme":"PDF","location":"cr.ac.tec.ce1103.databases","shared_secret":"12345","arguments":{"column":"id","pattern":"1",index:{"tree":"null"}}}
+{"command":"search","scheme":"PDF","location":"cr.ac.tec.ce1103.databases","shared_secret":"12345","arguments":{"column":"id","pattern":"2",index:{"tree":"null"}}}
+
+{"command":"get_schemes"}
