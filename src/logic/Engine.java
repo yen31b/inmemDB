@@ -784,7 +784,7 @@ public class Engine {
     }
     /**
      * Valida si la informacion de un join es correcta
-     * @param pJSON Informacion del Join a validar
+     * @param pJSON Informacion del join a validar
      * @return true or false
      */
     private boolean is_correct_join(String pJSON){

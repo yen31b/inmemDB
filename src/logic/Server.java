@@ -26,7 +26,6 @@ public class Server extends Thread {
     private Array<ClientWorker> _clientes = new Array<ClientWorker>();
     //BD Motor
     private static Engine _engine = new Engine();
-    private String Error = "error";
 
 
     /**
