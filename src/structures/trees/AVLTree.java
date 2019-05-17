@@ -3,6 +3,7 @@ package structures.trees;
 import structures.nodes.AVLNode;
 import structures.nodes.ListaSimpleNode;
 
+@SuppressWarnings("unchecked")
 public class AVLTree<E extends Comparable<E>> extends Arbol<E> {
     private AVLNode<E> rootAbove = new AVLNode();
     private String Error = "error";
@@ -150,8 +151,8 @@ public class AVLTree<E extends Comparable<E>> extends Arbol<E> {
             }
         }
 
-        remove.setLeftNode((AVLNode)null);
-        remove.setRightNode((AVLNode)null);
+        remove.setLeftNode(null);
+        remove.setRightNode(null);
     }
 
     private AVLNode<E> findSuccessor(AVLNode<E> root) {
@@ -169,10 +170,10 @@ public class AVLTree<E extends Comparable<E>> extends Arbol<E> {
 
             if (temp == parent.getLeft()) {
                 parent.setLeftNode(temp.getRight());
-                temp.setRightNode((AVLNode)null);
+                temp.setRightNode(null);
             } else {
                 parent.setRightNode(temp.getLeft());
-                temp.setLeftNode((AVLNode)null);
+                temp.setLeftNode(null);
             }
 
             return temp;
@@ -186,7 +187,7 @@ public class AVLTree<E extends Comparable<E>> extends Arbol<E> {
                 return temp.get_Node();
             }
 
-            balance = element.compareTo(temp.getElement());
+            balance = element.compareTo((E) temp.getElement());
         }
 
         return null;

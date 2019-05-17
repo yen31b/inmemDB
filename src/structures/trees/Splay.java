@@ -25,7 +25,7 @@ public class Splay<AnyType extends Comparable<AnyType>> extends Arbol<AnyType> {
             this.root = this.newNode;
         } else {
             this.root = this.splay(x, this.root);
-            int compareResult = x.compareTo((Comparable)this.root.element);
+            int compareResult = x.compareTo(this.root.element);
             if (compareResult < 0) {
                 this.newNode.left = this.root.left;
                 this.newNode.right = this.root;
@@ -48,7 +48,7 @@ public class Splay<AnyType extends Comparable<AnyType>> extends Arbol<AnyType> {
 
     public void delete(AnyType x) {
         this.root = this.splay(x, this.root);
-        if (((Comparable)this.root.element).compareTo(x) == 0) {
+        if (this.root.element.compareTo(x) == 0) {
             Splay.BinaryNode newTree;
             if (this.root.left == this.nullNode) {
                 newTree = this.root.right;
@@ -91,9 +91,9 @@ public class Splay<AnyType extends Comparable<AnyType>> extends Arbol<AnyType> {
         this.nullNode.element = x;
 
         while(true) {
-            int compareResult = x.compareTo((Comparable)t.element);
+            int compareResult = x.compareTo(t.element);
             if (compareResult < 0) {
-                if (x.compareTo((Comparable)t.left.element) < 0) {
+                if (x.compareTo(t.left.element) < 0) {
                     t = rotateWithLeftChild(t);
                 }
 
@@ -109,7 +109,7 @@ public class Splay<AnyType extends Comparable<AnyType>> extends Arbol<AnyType> {
                     break;
                 }
 
-                if (x.compareTo((Comparable)t.right.element) > 0) {
+                if (x.compareTo(t.right.element) > 0) {
                     t = rotateWithRightChild(t);
                 }
 
@@ -151,7 +151,7 @@ public class Splay<AnyType extends Comparable<AnyType>> extends Arbol<AnyType> {
         ListaSimpleNode U;
 
         BinaryNode(AnyType theElement, ListaSimpleNode node) {
-            this(theElement, (Splay.BinaryNode)null, (Splay.BinaryNode)null, node);
+            this(theElement, null, null, node);
         }
 
         BinaryNode(AnyType theElement, Splay.BinaryNode<AnyType> lt, Splay.BinaryNode<AnyType> rt, ListaSimpleNode node) {

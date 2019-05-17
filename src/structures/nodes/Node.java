@@ -1,8 +1,8 @@
 package structures.nodes;
 
-public class Node {
+public class Node<T> {
     private int _ID = -1;
-    private Node _Next = null;
+    private Node<T> _Next = null;
     private Object _Data = null;
     private boolean _State = false;
     private String Error = "error";
@@ -21,11 +21,11 @@ public class Node {
         this._Data = pObject;
     }
 
-    public Node get_Next() {
+    public Node<T> get_Next() {
         return this._Next;
     }
 
-    public void set_Next(Node pNode) {
+    public void set_Next(Node<T> pNode) {
         this._Next = pNode;
     }
 

@@ -8,7 +8,9 @@ import java.util.Stack;
 
 public class BinaryTree<T extends Comparable<T>>{
     protected Node<T> root;
-    //Comparador.
+    /**
+
+//Comparador.
     Comparator<T> comparator;
 
     public BinaryTree(){
@@ -288,5 +290,5 @@ public class BinaryTree<T extends Comparable<T>>{
             }
         }
         return false;
-    }
+    }*/
 }

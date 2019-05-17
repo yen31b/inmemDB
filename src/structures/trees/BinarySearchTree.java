@@ -29,10 +29,10 @@ public class BinarySearchTree<T extends Comparable<T>> extends Arbol<T> {
     private BinarySearchTree<T>.Node<T> insert(BinarySearchTree<T>.Node<T> p, T toInsert, ListaSimpleNode Nodo) {
         if (p == null) {
             return new BinarySearchTree.Node(toInsert, Nodo);
-        } else if (this.compare(toInsert, (Comparable)p.data) == 0) {
+        } else if (this.compare(toInsert, p.data) == 0) {
             return p;
         } else {
-            if (this.compare(toInsert, (Comparable)p.data) < 0) {
+            if (this.compare(toInsert, p.data) < 0) {
                 p.left = this.insert(p.left, toInsert, Nodo);
             } else {
                 p.right = this.insert(p.right, toInsert, Nodo);
@@ -49,10 +49,10 @@ public class BinarySearchTree<T extends Comparable<T>> extends Arbol<T> {
     private ListaSimpleNode search(BinarySearchTree<T>.Node<T> p, T toSearch) {
         if (p == null) {
             return null;
-        } else if (this.compare(toSearch, (Comparable)p.data) == 0) {
+        } else if (this.compare(toSearch, p.data) == 0) {
             return p.get_Node();
         } else {
-            return this.compare(toSearch, (Comparable)p.data) < 0 ? this.search(p.left, toSearch) : this.search(p.right, toSearch);
+            return this.compare(toSearch, p.data) < 0 ? this.search(p.left, toSearch) : this.search(p.right, toSearch);
         }
     }
 
@@ -64,9 +64,9 @@ public class BinarySearchTree<T extends Comparable<T>> extends Arbol<T> {
         if (p == null) {
             throw new RuntimeException("cannot delete.");
         } else {
-            if (this.compare(toDelete, (Comparable)p.data) < 0) {
+            if (this.compare(toDelete, p.data) < 0) {
                 p.left = this.delete(p.left, toDelete);
-            } else if (this.compare(toDelete, (Comparable)p.data) > 0) {
+            } else if (this.compare(toDelete, p.data) > 0) {
                 p.right = this.delete(p.right, toDelete);
             } else {
                 if (p.left == null) {
@@ -78,7 +78,7 @@ public class BinarySearchTree<T extends Comparable<T>> extends Arbol<T> {
                 }
 
                 p.data = this.retrieveData(p.left);
-                p.left = this.delete(p.left, (Comparable)p.data);
+                p.left = this.delete(p.left, p.data);
             }
 
             return p;
@@ -90,7 +90,7 @@ public class BinarySearchTree<T extends Comparable<T>> extends Arbol<T> {
             p = p.right;
         }
 
-        return (Comparable)p.data;
+        return p.data;
     }
 
     public Iterator<T> iterator() {
@@ -119,21 +119,21 @@ public class BinarySearchTree<T extends Comparable<T>> extends Arbol<T> {
                 BinarySearchTree.Node tmp;
                 for(tmp = (BinarySearchTree.Node)this.stk.pop(); tmp.right == null; tmp = (BinarySearchTree.Node)this.stk.pop()) {
                     if (this.stk.isEmpty()) {
-                        return (Comparable)cur.data;
+                        return cur.data;
                     }
                 }
 
                 this.stk.push(tmp.right);
             }
 
-            return (Comparable)cur.data;
+            return cur.data;
         }
 
         public void remove() {
         }
     }
 
-    private class Node<T> {
+    private class Node<T extends Comparable<T>> {
         private T data;
         private ListaSimpleNode U;
         private BinarySearchTree<T>.Node<T> left;
@@ -147,7 +147,7 @@ public class BinarySearchTree<T extends Comparable<T>> extends Arbol<T> {
         }
 
         public Node(T data, ListaSimpleNode Nodo) {
-            this(data, (BinarySearchTree.Node)null, (BinarySearchTree.Node)null, Nodo);
+            this(data, null, null, Nodo);
         }
 
         public ListaSimpleNode get_Node() {

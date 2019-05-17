@@ -24,7 +24,7 @@ public class ArbolAA<AnyType extends Comparable<AnyType>> extends Arbol<AnyType>
         this.root = this.remove(x, this.root);
     }
 
-    public AnyType findMin() {
+    public Comparable findMin() {
         if (this.isEmpty()) {
             return null;
         } else {
@@ -44,7 +44,7 @@ public class ArbolAA<AnyType extends Comparable<AnyType>> extends Arbol<AnyType>
             for(ptr = this.root; ptr.right != this.nullNode; ptr = ptr.right) {
             }
 
-            return (Comparable)ptr.element;
+            return (AnyType) ptr.element;
         }
     }
 
@@ -54,8 +54,8 @@ public class ArbolAA<AnyType extends Comparable<AnyType>> extends Arbol<AnyType>
         this.nullNode.element = x;
 
         while(true) {
-            while(x.compareTo((Comparable)current.element) >= 0) {
-                if (x.compareTo((Comparable)current.element) <= 0) {
+            while(x.compareTo(current.element) >= 0) {
+                if (x.compareTo(current.element) <= 0) {
                     if (current != this.nullNode) {
                         return node;
                     }
@@ -83,10 +83,10 @@ public class ArbolAA<AnyType extends Comparable<AnyType>> extends Arbol<AnyType>
     private ArbolAA.AANode<AnyType> insert(AnyType x, ArbolAA.AANode<AnyType> t, ListaSimpleNode node) {
         if (t == this.nullNode) {
             t = new ArbolAA.AANode(x, this.nullNode, this.nullNode, node);
-        } else if (x.compareTo((Comparable)t.element) < 0) {
+        } else if (x.compareTo(t.element) < 0) {
             t.left = this.insert(x, t.left, node);
         } else {
-            if (x.compareTo((Comparable)t.element) <= 0) {
+            if (x.compareTo(t.element) <= 0) {
                 throw new RuntimeException(x.toString());
             }
 
@@ -101,7 +101,7 @@ public class ArbolAA<AnyType extends Comparable<AnyType>> extends Arbol<AnyType>
     private ArbolAA.AANode<AnyType> remove(AnyType x, ArbolAA.AANode<AnyType> t) {
         if (t != this.nullNode) {
             this.lastNode = t;
-            if (x.compareTo((Comparable)t.element) < 0) {
+            if (x.compareTo(t.element) < 0) {
                 t.left = this.remove(x, t.left);
             } else {
                 this.deletedNode = t;
@@ -109,11 +109,11 @@ public class ArbolAA<AnyType extends Comparable<AnyType>> extends Arbol<AnyType>
             }
 
             if (t == this.lastNode) {
-                if (this.deletedNode == this.nullNode || x.compareTo((Comparable)this.deletedNode.element) != 0) {
+                if (this.deletedNode == this.nullNode || x.compareTo(this.deletedNode.element) != 0) {
                     throw new RuntimeException(x.toString());
                 }
 
-                this.deletedNode.element = (Comparable)t.element;
+                this.deletedNode.element = t.element;
                 t = t.right;
             } else if (t.left.level < t.level - 1 || t.right.level < t.level - 1) {
                 if (t.right.level > --t.level) {

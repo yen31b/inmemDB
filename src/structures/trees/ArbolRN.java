@@ -4,6 +4,7 @@ import structures.nodes.RBNode;
 import structures.nodes.ListaSimpleNode;
 import java.io.PrintWriter;
 
+@SuppressWarnings("unchecked")
 public class ArbolRN<T extends Comparable<T>> extends Arbol<T> {
     private String Error = "error";
     private static final char BLACK = 'B';
@@ -78,11 +79,11 @@ public class ArbolRN<T extends Comparable<T>> extends Arbol<T> {
         RBNode current = this.root;
 
         do {
-            if (data.compareTo(current.getData()) == 0) {
+            if (data.compareTo((T) current.getData()) == 0) {
                 return retorno;
             }
 
-            if (data.compareTo(current.getData()) < 0) {
+            if (data.compareTo((T) current.getData()) < 0) {
                 current = current.getLeftChild();
                 retorno = current.getLeftChild().get_Node();
             } else {

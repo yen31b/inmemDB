@@ -4,7 +4,7 @@ package structures.lists;
 import structures.nodes.Node;
 
 public class Array<T> {
-    private Node _head = null;
+    private Node<T> _head = null;
     private int _largo = 0;
     private String Error = "error";
     public Array() {
@@ -20,13 +20,13 @@ public class Array<T> {
 
     public void insertar(T pObject) {
         if (this._head == null) {
-            this._head = new Node(pObject, this.get_size());
+            this._head = new Node<T>(pObject, this.get_size());
         } else {
-            Node tmp;
+            Node<T> tmp;
             for(tmp = this._head; tmp.get_Next() != null; tmp = tmp.get_Next()) {
             }
 
-            tmp.set_Next(new Node(pObject, this.get_size()));
+            tmp.set_Next(new Node<T>(pObject, this.get_size()));
         }
 
         this.set_size(1);
@@ -34,7 +34,7 @@ public class Array<T> {
 
     public Object get(int pIndex) {
         Object returned = null;
-        Node tmp = this._head;
+        Node<T> tmp = this._head;
         int contador = 0;
         if (pIndex > this.get_size() - 1) {
             returned = -1;
@@ -54,7 +54,7 @@ public class Array<T> {
 
     public boolean set(int pIndex, T pObject) {
         Boolean returned = null;
-        Node tmp = this._head;
+        Node<T> tmp = this._head;
         int contador = 0;
         if (pIndex > this.get_size() - 1) {
             returned = false;
@@ -74,7 +74,7 @@ public class Array<T> {
     }
 
     public void delete(int pIndex) {
-        Node tmp = this._head;
+        Node<T> tmp = this._head;
         int contador = 0;
         if (pIndex <= this.get_size() - 1) {
             for(; contador <= pIndex && tmp != null; tmp = tmp.get_Next()) {

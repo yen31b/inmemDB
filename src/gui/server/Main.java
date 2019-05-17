@@ -13,7 +13,6 @@ public class Main {
     public static DefaultInfo _defaultinfo = new DefaultInfo();
     private static Server _server = null;
     private static Array<String[]> _log = new Array<String[]>();
-    private String Error = "error";
 
     /**
      * Main Method
@@ -135,7 +134,6 @@ public class Main {
                     Tools.write_("Esquema #"+(i+1),Tools.COLOR_BLUE);
                     Tools.write_("\tNombre: "+(String) scheme.get(0),Tools.COLOR_CYAN);//Nombre
                     Tools.write_("\tUbicación: "+(String) scheme.get(1),Tools.COLOR_CYAN);//Location
-                    Tools.write_("\tShared Secret: "+(String) scheme.get(2),Tools.COLOR_CYAN);//Shared Secret
                     Tools.write_("\tColumnas:",Tools.COLOR_CYAN);
                     ListaSimple columnas = (ListaSimple) scheme.get(3);
                     for(int j=0;j<columnas.get_size();j++){

@@ -4,9 +4,9 @@ import structures.nodes.BNode;
 import structures.nodes.ListaSimpleNode;
 import java.util.NoSuchElementException;
 
+@SuppressWarnings("unchecked")
 public class ArbolB<T extends Comparable<T>> extends Arbol<T> {
     private BNode<T> root;
-    private String Error = "error";
 
     public ArbolB() {
         this.root = null;
@@ -59,9 +59,9 @@ public class ArbolB<T extends Comparable<T>> extends Arbol<T> {
             }
 
             this.restructInsert(node, false);
-        } else if (info.compareTo((Comparable)node.information) == 0) {
+        } else if (info.compareTo(node.information) == 0) {
             node.information = info;
-        } else if (info.compareTo((Comparable)node.information) > 0) {
+        } else if (info.compareTo(node.information) > 0) {
             this.insert(info, node.right, node, true, Node);
         } else {
             this.insert(info, node.left, node, false, Node);
@@ -72,10 +72,10 @@ public class ArbolB<T extends Comparable<T>> extends Arbol<T> {
     private ListaSimpleNode search(T info, BNode<T> node) {
         if (node == null) {
             return null;
-        } else if (info.compareTo((Comparable)node.information) == 0) {
+        } else if (info.compareTo(node.information) == 0) {
             return node.get_Node();
         } else {
-            return info.compareTo((Comparable)node.information) > 0 ? this.search(info, node.right) : this.search(info, node.left);
+            return info.compareTo(node.information) > 0 ? this.search(info, node.right) : this.search(info, node.left);
         }
     }
 
@@ -83,9 +83,9 @@ public class ArbolB<T extends Comparable<T>> extends Arbol<T> {
         if (node == null) {
             throw new NoSuchElementException();
         } else {
-            if (info.compareTo((Comparable)node.information) == 0) {
+            if (info.compareTo(node.information) == 0) {
                 this.deleteNode(node);
-            } else if (info.compareTo((Comparable)node.information) > 0) {
+            } else if (info.compareTo(node.information) > 0) {
                 this.delete(info, node.right);
             } else {
                 this.delete(info, node.left);
@@ -118,7 +118,7 @@ public class ArbolB<T extends Comparable<T>> extends Arbol<T> {
                 }
 
                 delNode = minMaxNode;
-                node.information = (Comparable)minMaxNode.information;
+                node.information = (T) minMaxNode.information;
                 if (node.left.right != null) {
                     minMaxNode.parent.right = minMaxNode.left;
                     rightNode = true;
@@ -133,7 +133,7 @@ public class ArbolB<T extends Comparable<T>> extends Arbol<T> {
                 minMaxNode = node.right;
                 delNode = minMaxNode;
                 rightNode = true;
-                node.information = (Comparable)minMaxNode.information;
+                node.information = (T) minMaxNode.information;
                 node.right = minMaxNode.right;
                 if (node.right != null) {
                     node.right.parent = node;
@@ -150,7 +150,7 @@ public class ArbolB<T extends Comparable<T>> extends Arbol<T> {
     }
 
     private int getHeight(BNode<T> node) {
-        int height = false;
+
         int height;
         if (node == null) {
             height = -1;

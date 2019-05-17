@@ -22,7 +22,7 @@ public class DefaultInfo {
     private final int PIN = 1029384756;
     //Server's port
     private int  PUERTO=0;
-    //WebServer's Configuration
+
     private String FOLDER = null;
     private String HOME_PAGE = null;
     //Another Configurations

@@ -1,7 +1,5 @@
 package structures.nodes;
 
-import structures.nodes.ListaSimpleNode;
-
 public class AVLNode<E extends Comparable<? super E>> {
     private AVLNode<E> left;
     private AVLNode<E> right;
@@ -11,7 +9,7 @@ public class AVLNode<E extends Comparable<? super E>> {
     private String Error = "error";
 
     public AVLNode() {
-        this((Comparable)null, (ListaSimpleNode)null);
+        this(null, null);
     }
 
     public AVLNode(E element, ListaSimpleNode node) {
